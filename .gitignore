@@ -1,0 +1,5 @@
+.DS_Store
+.claude/
+.vscode/
+# removed from the gallery; kept locally only
+images/brand-08.jpg

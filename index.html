@@ -1,0 +1,131 @@
+http://localhost:8934/index.html#about
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kai Tröppl — Model &amp; Photographer</title>
+<meta name="description" content="Kai Tröppl — Model and Photographer portfolio.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='38' fill='%23b7282e'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Noto+Serif+JP:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<span class="vertical-mark" aria-hidden="true">モデル ・ フォトグラファー</span>
+
+<div class="header-wrap">
+  <header class="site-header">
+    <a href="#hero" class="wordmark">
+      <span class="mark"></span>
+      <span class="wordmark-text">Kai Tröppl</span>
+    </a>
+
+    <div class="header-controls">
+      <div class="lang-switch" role="group" aria-label="Language / 言語">
+        <button type="button" data-lang="en" class="active">EN</button>
+        <button type="button" data-lang="jp">日本語</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="site-nav" id="siteNav">
+    <a href="#work" data-i18n="navWork">Work</a>
+    <a href="#about" data-i18n="navAbout">About</a>
+    <a href="#contact-info" data-i18n="navContact">Contact</a>
+  </nav>
+</div>
+
+<main>
+
+  <section id="hero" class="hero">
+    <p class="hero-eyebrow" data-i18n="heroRole">Model — Photographer</p>
+    <h1 class="hero-title">Kai Tröppl</h1>
+    <p class="hero-tagline" data-i18n="heroTagline">Capturing and being captured.</p>
+    <div class="hero-actions">
+      <a href="#work" class="hero-cta">
+        <span data-i18n="heroCta">View Work</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 4v16M5 13l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="" class="compcard-link" id="compcardLink" download>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 4v11M6 10l6 6 6-6M5 20h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span data-i18n="compcardLabel">Download Comp Card</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="work" class="work">
+    <div class="section-head">
+      <h2 data-i18n="navWork">Work</h2>
+      <div class="filters" role="tablist" aria-label="Filter gallery">
+        <button type="button" class="filter-btn active" data-filter="all" data-i18n="filterAll">All</button>
+        <button type="button" class="filter-btn" data-filter="modeling" data-i18n="filterModeling">Portfolio</button>
+        <button type="button" class="filter-btn" data-filter="brands" data-i18n="filterBrands">Brands</button>
+        <button type="button" class="filter-btn" data-filter="photography" data-i18n="filterPhotography">Photography</button>
+      </div>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div id="about" class="about-section">
+      <h2 class="about-banner" data-i18n="aboutHeading">About Me</h2>
+      <div class="about-grid">
+        <div class="about-portrait">
+          <img src="images/about-portrait.jpg" alt="Kai Tröppl">
+          <span class="about-name">Kai Tröppl</span>
+        </div>
+        <div class="about-copy">
+          <p data-i18n="aboutBody">I work across editorial, commercial, and personal projects. Open to collaborations, bookings, and new ideas.</p>
+          <dl class="about-facts">
+            <div>
+              <dt data-i18n="aboutLabelBased">Based in</dt>
+              <dd data-i18n="aboutLabelBasedVal">[Your City]</dd>
+            </div>
+            <div>
+              <dt data-i18n="aboutLabelFocus">Focus</dt>
+              <dd data-i18n="aboutLabelFocusVal">Editorial · Portrait · Fashion</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <div id="contact-info" class="contact-info">
+      <h2 data-i18n="contactHeading">Contact</h2>
+      <p data-i18n="contactBody">For bookings, collaborations, or just to say hello.</p>
+      <a href="mailto:you@example.com" class="contact-email" id="contactEmail">you@example.com</a>
+
+      <ul class="social-row" id="socialRow" aria-label="Social links">
+        <!-- populated by script.js from SOCIAL_LINKS -->
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <span data-i18n="footerRights">All work © Kai Tröppl. All rights reserved.</span>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" data-i18n-aria="lightboxClose" aria-label="Close">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">&lsaquo;</button>
+  <div class="lightbox-stage" id="lightboxStage"></div>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">&rsaquo;</button>
+  <p class="lightbox-caption" id="lightboxCaption"></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
