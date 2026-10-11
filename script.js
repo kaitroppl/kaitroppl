@@ -84,7 +84,6 @@ const TRANSLATIONS = {
     heroRole: "Model — Photographer",
     heroTagline: "Capturing and being captured.",
     heroCta: "View Work",
-    filterAll: "All",
     filterModeling: "Portfolio",
     filterPhotography: "Photography",
     filterBrands: "Brands",
@@ -107,7 +106,6 @@ const TRANSLATIONS = {
     heroRole: "モデル ― フォトグラファー",
     heroTagline: "撮る、そして撮られる。",
     heroCta: "作品を見る",
-    filterAll: "すべて",
     filterModeling: "ポートフォリオ",
     filterPhotography: "写真",
     filterBrands: "ブランド",
@@ -135,7 +133,7 @@ const ICONS = {
 };
 
 let currentLang = "en";
-let currentFilter = "all";
+let currentFilter = "modeling";
 let lightboxIndex = 0;
 
 function applyTranslations() {
@@ -249,17 +247,14 @@ function applyFilter(filter) {
     btn.classList.toggle("active", btn.dataset.filter === filter);
   });
   document.querySelectorAll(".gallery-item").forEach((el) => {
-    // "All" intentionally excludes photography — it only shows when its own tab is active.
-    const match =
-      filter === "all" ? el.dataset.category !== "photography" : el.dataset.category === filter;
-    el.classList.toggle("hidden", !match);
+    el.classList.toggle("hidden", el.dataset.category !== filter);
   });
   layoutMasonry();
 }
 
 function visibleIndices() {
   return GALLERY_ITEMS.map((item, i) => i).filter(
-    (i) => currentFilter === "all" || GALLERY_ITEMS[i].category === currentFilter
+    (i) => GALLERY_ITEMS[i].category === currentFilter
   );
 }
 
