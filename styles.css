@@ -209,7 +209,9 @@ ul { list-style: none; margin: 0; padding: 0; }
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2rem 1.5rem 0;
+  /* same width and side padding as .work so the photos line up with the gallery */
+  max-width: min(94vw, 1760px);
+  padding: 2rem clamp(1.25rem, 5vw, 4rem) 0;
   position: relative;
 }
 .hero-eyebrow {
@@ -236,9 +238,8 @@ ul { list-style: none; margin: 0; padding: 0; }
 .hero-photos {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: .75rem;
-  /* three 2:3 photos, each min(68vh, 680px) tall */
-  width: min(100%, calc(min(68vh, 680px) * 2 + 1.5rem));
+  gap: 1.5rem;
+  width: 100%;
   margin: 0 0 1.6rem;
 }
 .hero-figure {
@@ -265,6 +266,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 /* Phones: the middle photo runs full width, the other two sit beneath it */
 @media (max-width: 720px) {
+  .hero { max-width: none; padding-left: 1rem; padding-right: 1rem; }
   .hero-photos { grid-template-columns: repeat(2, 1fr); gap: .6rem; }
   .hero-main { grid-column: 1 / -1; order: -1; }
 }
