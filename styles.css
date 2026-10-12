@@ -235,7 +235,7 @@ ul { list-style: none; margin: 0; padding: 0; }
    dark ink because it always sits on the light part of the image. */
 .hero-figure {
   position: relative;
-  margin: 1.4rem 0 0;
+  margin: 0 0 1.6rem;
   width: min(100%, calc(min(68vh, 680px) * 4 / 5));
   aspect-ratio: 4 / 5;
   border-radius: var(--radius);
