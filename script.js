@@ -72,6 +72,13 @@ const GALLERY_ITEMS = [
   { category: "modeling", shape: "auto wide", ratio: "2000/1333", src: "images/brand-10.jpg", titleEn: "AIUA 10", titleJp: "AIUA 10" },
   { category: "modeling", shape: "auto", ratio: "1599/2000", src: "images/brand-11.jpg", titleEn: "AIUA 11", titleJp: "AIUA 11" },
   { category: "modeling", shape: "auto wide", ratio: "2000/1333", src: "images/brand-12.jpg", titleEn: "AIUA 12", titleJp: "AIUA 12" },
+  { category: "polaroids", shape: "auto", ratio: "1333/2000", src: "images/polaroid-01.jpg", titleEn: "Polaroid 01", titleJp: "ポラロイド 01" },
+  { category: "polaroids", shape: "auto", ratio: "1333/2000", src: "images/polaroid-02.jpg", titleEn: "Polaroid 02", titleJp: "ポラロイド 02" },
+  { category: "polaroids", shape: "auto", ratio: "1333/2000", src: "images/polaroid-03.jpg", titleEn: "Polaroid 03", titleJp: "ポラロイド 03" },
+  { category: "polaroids", shape: "auto", ratio: "1333/2000", src: "images/polaroid-04.jpg", titleEn: "Polaroid 04", titleJp: "ポラロイド 04" },
+  { category: "polaroids", shape: "auto", ratio: "1333/2000", src: "images/polaroid-05.jpg", titleEn: "Polaroid 05", titleJp: "ポラロイド 05" },
+  { category: "polaroids", shape: "auto", ratio: "1333/2000", src: "images/polaroid-06.jpg", titleEn: "Polaroid 06", titleJp: "ポラロイド 06" },
+  { category: "polaroids", shape: "auto", ratio: "1333/2000", src: "images/polaroid-07.jpg", titleEn: "Polaroid 07", titleJp: "ポラロイド 07" },
 ];
 
 // 3) Text — every data-i18n="key" element in index.html pulls from here.
