@@ -209,7 +209,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 5rem 1.5rem 2rem;
+  padding: 5rem 1.5rem 0;
   position: relative;
 }
 .hero-eyebrow {
@@ -307,7 +307,8 @@ main section { padding: 6rem clamp(1.25rem, 5vw, 4rem); max-width: var(--max); m
 
 /* Work's gallery reads better filling more of the screen on wide monitors,
    unlike the prose sections which stay narrower for readability. */
-.work { max-width: min(94vw, 1760px); }
+/* scroll-margin keeps the heading clear of the sticky header on "View Work" */
+.work { max-width: min(94vw, 1760px); padding-top: 2.5rem; scroll-margin-top: 4.5rem; }
 .section-head {
   display: flex;
   flex-wrap: wrap;
@@ -382,7 +383,7 @@ main section { padding: 6rem clamp(1.25rem, 5vw, 4rem); max-width: var(--max); m
 /* Phones: two images per row, so "wide" no longer takes a whole row */
 @media (max-width: 720px) {
   main section { padding-top: 3.5rem; padding-bottom: 3.5rem; }
-  .work { max-width: none; padding-left: 1rem; padding-right: 1rem; }
+  .work { max-width: none; padding-top: 2rem; padding-left: 1rem; padding-right: 1rem; }
   .section-head { margin-bottom: 1.6rem; gap: 1rem; }
   .filters { flex-wrap: wrap; gap: .4rem; }
   .filter-btn { padding: .45rem .85rem; font-size: .7rem; }
