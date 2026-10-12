@@ -18,7 +18,7 @@ const COMPCARD_URL = "";
 // 2) Gallery — replace `src` with a real image path (e.g. "images/shoot-01.jpg")
 //    to swap out a placeholder. Leave src empty to keep the placeholder block.
 //    shape controls the crop: "portrait" | "landscape" | "square"
-//    category: "modeling" | "photography" | "brands"
+//    category: "modeling" | "50mm" | "polaroids"
 const GALLERY_ITEMS = [
   { category: "modeling", shape: "portrait", src: "images/gabrielron-01.jpg", titleEn: "Look 09", titleJp: "ルック 09" },
   { category: "modeling", shape: "portrait", src: "images/gabrielron-02.jpg", titleEn: "Look 10", titleJp: "ルック 10" },
@@ -43,36 +43,36 @@ const GALLERY_ITEMS = [
   { category: "modeling", shape: "portrait", src: "images/modeling-06.jpg", titleEn: "Look 06", titleJp: "ルック 06" },
   { category: "modeling", shape: "portrait", src: "images/modeling-07.jpg", titleEn: "Look 07", titleJp: "ルック 07" },
   { category: "modeling", shape: "landscape", src: "images/modeling-08.jpg", titleEn: "Look 08", titleJp: "ルック 08" },
-  { category: "photography", shape: "auto wide", ratio: "2000/1125", src: "images/photography-02.jpg", titleEn: "Frame 02", titleJp: "フレーム 02" },
-  { category: "photography", shape: "auto", ratio: "1125/2000", src: "images/photography-03.jpg", titleEn: "Frame 03", titleJp: "フレーム 03" },
-  { category: "photography", shape: "auto wide", ratio: "2000/1125", src: "images/photography-04.jpg", titleEn: "Frame 04", titleJp: "フレーム 04" },
-  { category: "photography", shape: "auto", ratio: "1240/2000", src: "images/photography-05.jpg", titleEn: "Frame 05", titleJp: "フレーム 05" },
-  { category: "photography", shape: "auto wide", ratio: "2000/1125", src: "images/photography-06.jpg", titleEn: "Frame 06", titleJp: "フレーム 06" },
-  { category: "photography", shape: "auto wide", ratio: "2000/1212", src: "images/photography-07.jpg", titleEn: "Frame 07", titleJp: "フレーム 07" },
-  { category: "photography", shape: "auto wide", ratio: "2000/1125", src: "images/photography-08.jpg", titleEn: "Frame 08", titleJp: "フレーム 08" },
-  { category: "photography", shape: "auto", ratio: "1501/2000", src: "images/photography-09.jpg", titleEn: "Frame 09", titleJp: "フレーム 09" },
-  { category: "photography", shape: "auto wide", ratio: "2000/1501", src: "images/photography-10.jpg", titleEn: "Frame 10", titleJp: "フレーム 10" },
-  { category: "photography", shape: "auto", ratio: "1501/2000", src: "images/photography-11.jpg", titleEn: "Frame 11", titleJp: "フレーム 11" },
-  { category: "photography", shape: "auto wide", ratio: "2000/1501", src: "images/photography-12.jpg", titleEn: "Frame 12", titleJp: "フレーム 12" },
-  { category: "photography", shape: "auto wide", ratio: "2000/1501", src: "images/photography-13.jpg", titleEn: "Frame 13", titleJp: "フレーム 13" },
-  { category: "photography", shape: "auto", ratio: "1501/2000", src: "images/photography-14.jpg", titleEn: "Frame 14", titleJp: "フレーム 14" },
-  { category: "photography", shape: "auto", ratio: "1501/2000", src: "images/photography-15.jpg", titleEn: "Frame 15", titleJp: "フレーム 15" },
-  { category: "photography", shape: "auto wide", ratio: "2000/1125", src: "images/photography-16.jpg", titleEn: "Frame 16", titleJp: "フレーム 16" },
-  { category: "photography", shape: "auto wide", ratio: "2000/1125", src: "images/photography-17.jpg", titleEn: "Frame 17", titleJp: "フレーム 17" },
-  { category: "photography", shape: "auto wide", ratio: "2000/1125", src: "images/photography-18.jpg", titleEn: "Frame 18", titleJp: "フレーム 18" },
-  { category: "photography", shape: "auto wide", ratio: "2000/1125", src: "images/photography-19.jpg", titleEn: "Frame 19", titleJp: "フレーム 19" },
-  { category: "photography", shape: "auto wide", ratio: "2000/1125", src: "images/photography-20.jpg", titleEn: "Frame 20", titleJp: "フレーム 20" },
-  { category: "brands", shape: "auto wide", ratio: "2000/1333", src: "images/brand-01.jpg", titleEn: "AIUA 01", titleJp: "AIUA 01" },
-  { category: "brands", shape: "auto wide", ratio: "2000/1333", src: "images/brand-02.jpg", titleEn: "AIUA 02", titleJp: "AIUA 02" },
-  { category: "brands", shape: "auto wide", ratio: "2000/1333", src: "images/brand-03.jpg", titleEn: "AIUA 03", titleJp: "AIUA 03" },
-  { category: "brands", shape: "auto", ratio: "1599/2000", src: "images/brand-04.jpg", titleEn: "AIUA 04", titleJp: "AIUA 04" },
-  { category: "brands", shape: "auto wide", ratio: "2000/1333", src: "images/brand-05.jpg", titleEn: "AIUA 05", titleJp: "AIUA 05" },
-  { category: "brands", shape: "auto wide", ratio: "2000/1333", src: "images/brand-06.jpg", titleEn: "AIUA 06", titleJp: "AIUA 06" },
-  { category: "brands", shape: "auto", ratio: "1428/2000", src: "images/brand-07.jpg", titleEn: "AIUA 07", titleJp: "AIUA 07" },
-  { category: "brands", shape: "auto", ratio: "1333/2000", src: "images/brand-09.jpg", titleEn: "AIUA 09", titleJp: "AIUA 09" },
-  { category: "brands", shape: "auto wide", ratio: "2000/1333", src: "images/brand-10.jpg", titleEn: "AIUA 10", titleJp: "AIUA 10" },
-  { category: "brands", shape: "auto", ratio: "1599/2000", src: "images/brand-11.jpg", titleEn: "AIUA 11", titleJp: "AIUA 11" },
-  { category: "brands", shape: "auto wide", ratio: "2000/1333", src: "images/brand-12.jpg", titleEn: "AIUA 12", titleJp: "AIUA 12" },
+  { category: "50mm", shape: "auto wide", ratio: "2000/1125", src: "images/photography-02.jpg", titleEn: "Frame 02", titleJp: "フレーム 02" },
+  { category: "50mm", shape: "auto", ratio: "1125/2000", src: "images/photography-03.jpg", titleEn: "Frame 03", titleJp: "フレーム 03" },
+  { category: "50mm", shape: "auto wide", ratio: "2000/1125", src: "images/photography-04.jpg", titleEn: "Frame 04", titleJp: "フレーム 04" },
+  { category: "50mm", shape: "auto", ratio: "1240/2000", src: "images/photography-05.jpg", titleEn: "Frame 05", titleJp: "フレーム 05" },
+  { category: "50mm", shape: "auto wide", ratio: "2000/1125", src: "images/photography-06.jpg", titleEn: "Frame 06", titleJp: "フレーム 06" },
+  { category: "50mm", shape: "auto wide", ratio: "2000/1212", src: "images/photography-07.jpg", titleEn: "Frame 07", titleJp: "フレーム 07" },
+  { category: "50mm", shape: "auto wide", ratio: "2000/1125", src: "images/photography-08.jpg", titleEn: "Frame 08", titleJp: "フレーム 08" },
+  { category: "50mm", shape: "auto", ratio: "1501/2000", src: "images/photography-09.jpg", titleEn: "Frame 09", titleJp: "フレーム 09" },
+  { category: "50mm", shape: "auto wide", ratio: "2000/1501", src: "images/photography-10.jpg", titleEn: "Frame 10", titleJp: "フレーム 10" },
+  { category: "50mm", shape: "auto", ratio: "1501/2000", src: "images/photography-11.jpg", titleEn: "Frame 11", titleJp: "フレーム 11" },
+  { category: "50mm", shape: "auto wide", ratio: "2000/1501", src: "images/photography-12.jpg", titleEn: "Frame 12", titleJp: "フレーム 12" },
+  { category: "50mm", shape: "auto wide", ratio: "2000/1501", src: "images/photography-13.jpg", titleEn: "Frame 13", titleJp: "フレーム 13" },
+  { category: "50mm", shape: "auto", ratio: "1501/2000", src: "images/photography-14.jpg", titleEn: "Frame 14", titleJp: "フレーム 14" },
+  { category: "50mm", shape: "auto", ratio: "1501/2000", src: "images/photography-15.jpg", titleEn: "Frame 15", titleJp: "フレーム 15" },
+  { category: "50mm", shape: "auto wide", ratio: "2000/1125", src: "images/photography-16.jpg", titleEn: "Frame 16", titleJp: "フレーム 16" },
+  { category: "50mm", shape: "auto wide", ratio: "2000/1125", src: "images/photography-17.jpg", titleEn: "Frame 17", titleJp: "フレーム 17" },
+  { category: "50mm", shape: "auto wide", ratio: "2000/1125", src: "images/photography-18.jpg", titleEn: "Frame 18", titleJp: "フレーム 18" },
+  { category: "50mm", shape: "auto wide", ratio: "2000/1125", src: "images/photography-19.jpg", titleEn: "Frame 19", titleJp: "フレーム 19" },
+  { category: "50mm", shape: "auto wide", ratio: "2000/1125", src: "images/photography-20.jpg", titleEn: "Frame 20", titleJp: "フレーム 20" },
+  { category: "modeling", shape: "auto wide", ratio: "2000/1333", src: "images/brand-01.jpg", titleEn: "AIUA 01", titleJp: "AIUA 01" },
+  { category: "modeling", shape: "auto wide", ratio: "2000/1333", src: "images/brand-02.jpg", titleEn: "AIUA 02", titleJp: "AIUA 02" },
+  { category: "modeling", shape: "auto wide", ratio: "2000/1333", src: "images/brand-03.jpg", titleEn: "AIUA 03", titleJp: "AIUA 03" },
+  { category: "modeling", shape: "auto", ratio: "1599/2000", src: "images/brand-04.jpg", titleEn: "AIUA 04", titleJp: "AIUA 04" },
+  { category: "modeling", shape: "auto wide", ratio: "2000/1333", src: "images/brand-05.jpg", titleEn: "AIUA 05", titleJp: "AIUA 05" },
+  { category: "modeling", shape: "auto wide", ratio: "2000/1333", src: "images/brand-06.jpg", titleEn: "AIUA 06", titleJp: "AIUA 06" },
+  { category: "modeling", shape: "auto", ratio: "1428/2000", src: "images/brand-07.jpg", titleEn: "AIUA 07", titleJp: "AIUA 07" },
+  { category: "modeling", shape: "auto", ratio: "1333/2000", src: "images/brand-09.jpg", titleEn: "AIUA 09", titleJp: "AIUA 09" },
+  { category: "modeling", shape: "auto wide", ratio: "2000/1333", src: "images/brand-10.jpg", titleEn: "AIUA 10", titleJp: "AIUA 10" },
+  { category: "modeling", shape: "auto", ratio: "1599/2000", src: "images/brand-11.jpg", titleEn: "AIUA 11", titleJp: "AIUA 11" },
+  { category: "modeling", shape: "auto wide", ratio: "2000/1333", src: "images/brand-12.jpg", titleEn: "AIUA 12", titleJp: "AIUA 12" },
 ];
 
 // 3) Text — every data-i18n="key" element in index.html pulls from here.
@@ -91,8 +91,9 @@ const TRANSLATIONS = {
     statInseam: "Inseam",
     statShoe: "Shoe",
     filterModeling: "Portfolio",
-    filterPhotography: "Photography",
-    filterBrands: "Brands",
+    filterPhotography: "50mm",
+    filterPolaroids: "Polaroids",
+    galleryEmpty: "Coming soon.",
     aboutHeading: "About Me",
     aboutBody: "I work across editorial, commercial, and personal projects. Open to collaborations, bookings, and new ideas.",
     aboutLabelBased: "Based in",
@@ -119,8 +120,9 @@ const TRANSLATIONS = {
     statInseam: "股下",
     statShoe: "靴",
     filterModeling: "ポートフォリオ",
-    filterPhotography: "写真",
-    filterBrands: "ブランド",
+    filterPhotography: "50mm",
+    filterPolaroids: "ポラロイド",
+    galleryEmpty: "近日公開。",
     aboutHeading: "プロフィール",
     aboutBody: "エディトリアル、広告、個人制作まで幅広く手がけています。お仕事のご依頼・コラボレーションのご相談はお気軽にどうぞ。",
     aboutLabelBased: "拠点",
@@ -261,6 +263,7 @@ function applyFilter(filter) {
   document.querySelectorAll(".gallery-item").forEach((el) => {
     el.classList.toggle("hidden", el.dataset.category !== filter);
   });
+  document.getElementById("galleryEmpty").hidden = visibleIndices().length > 0;
   layoutMasonry();
 }
 

@@ -393,6 +393,15 @@ main section { padding: 6rem clamp(1.25rem, 5vw, 4rem); max-width: var(--max); m
   .gallery-item.wide { grid-column: span 1; }
 }
 
+.gallery-empty {
+  padding: 4rem 0;
+  text-align: center;
+  font-size: .8rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
 .placeholder-box {
   width: 100%; height: 100%;
   display: flex;
