@@ -62,7 +62,6 @@ const GALLERY_ITEMS = [
   { category: "50mm", shape: "auto wide", ratio: "2000/1125", src: "images/photography-18.jpg", titleEn: "Frame 18", titleJp: "フレーム 18" },
   { category: "50mm", shape: "auto wide", ratio: "2000/1125", src: "images/photography-19.jpg", titleEn: "Frame 19", titleJp: "フレーム 19" },
   { category: "50mm", shape: "auto wide", ratio: "2000/1125", src: "images/photography-20.jpg", titleEn: "Frame 20", titleJp: "フレーム 20" },
-  { category: "modeling", shape: "auto wide", ratio: "2000/1333", src: "images/brand-01.jpg", titleEn: "AIUA 01", titleJp: "AIUA 01" },
   { category: "modeling", shape: "auto wide", ratio: "2000/1333", src: "images/brand-02.jpg", titleEn: "AIUA 02", titleJp: "AIUA 02" },
   { category: "modeling", shape: "auto wide", ratio: "2000/1333", src: "images/brand-03.jpg", titleEn: "AIUA 03", titleJp: "AIUA 03" },
   { category: "modeling", shape: "auto", ratio: "1599/2000", src: "images/brand-04.jpg", titleEn: "AIUA 04", titleJp: "AIUA 04" },
