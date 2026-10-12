@@ -697,6 +697,23 @@ main section { padding: 6rem clamp(1.25rem, 5vw, 4rem); max-width: var(--max); m
   letter-spacing: .05em;
   opacity: .8;
 }
+.lightbox-download {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  margin-top: .9rem;
+  padding-bottom: 3px;
+  color: #f3efe8;
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(243, 239, 232, .5);
+  opacity: .75;
+  transition: opacity .2s var(--ease);
+}
+.lightbox-download:hover { opacity: 1; }
+.lightbox-download[hidden] { display: none; }
 .lightbox-close, .lightbox-nav {
   position: absolute;
   background: none;

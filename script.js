@@ -120,6 +120,7 @@ const TRANSLATIONS = {
     contactHeading: "Contact",
     contactBody: "For bookings, collaborations, or just to say hello.",
     compcardLabel: "Download Comp Card",
+    downloadLabel: "Download",
     footerRights: "All work © Kai Tröppl. All rights reserved.",
   },
   jp: {
@@ -149,6 +150,7 @@ const TRANSLATIONS = {
     contactHeading: "連絡先",
     contactBody: "お仕事のご依頼、コラボレーション、またお気軽なご挨拶まで。",
     compcardLabel: "コンプカードをダウンロード",
+    downloadLabel: "ダウンロード",
     footerRights: "All work © Kai Tröppl. All rights reserved.",
   },
 };
@@ -314,6 +316,12 @@ function renderLightbox() {
     : `<div class="placeholder-box" aria-hidden="true">
         <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.3"/><circle cx="9" cy="10.5" r="1.6" stroke="currentColor" stroke-width="1.3"/><path d="m5 17 4.5-4.5 3 3L18 10" stroke="currentColor" stroke-width="1.3"/></svg>
       </div>`;
+  const download = document.getElementById("lightboxDownload");
+  download.hidden = !item.src;
+  if (item.src) {
+    download.href = item.src;
+    download.download = `kai-troppl-${item.src.split("/").pop()}`;
+  }
   updateLightboxCaption();
 }
 
