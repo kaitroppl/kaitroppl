@@ -209,7 +209,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 5rem 1.5rem 0;
+  padding: 2rem 1.5rem 0;
   position: relative;
 }
 .hero-eyebrow {
@@ -217,7 +217,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   letter-spacing: .35em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 1.4rem;
+  margin-bottom: .9rem;
 }
 .hero-title {
   font-size: clamp(3rem, 9vw, 6.5rem);
@@ -225,13 +225,40 @@ ul { list-style: none; margin: 0; padding: 0; }
   line-height: 1;
 }
 .hero-tagline {
-  margin-top: 1.4rem;
+  margin: 0;
   font-size: 1.05rem;
   color: var(--ink-soft);
   font-weight: 300;
 }
+/* Hero photo with the name set over the pale studio floor at its foot.
+   The name is sized in cqw so it scales with the photo, and uses a fixed
+   dark ink because it always sits on the light part of the image. */
+.hero-figure {
+  position: relative;
+  margin: 1.4rem 0 0;
+  width: min(100%, calc(min(68vh, 680px) * 4 / 5));
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-alt);
+  container-type: inline-size;
+}
+.hero-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-figure .hero-title {
+  position: absolute;
+  left: 0; right: 0; bottom: 4.5cqw;
+  margin: 0;
+  font-size: 15cqw;
+  color: #171512;
+}
+
 .hero-actions {
-  margin-top: 2.6rem;
+  margin-top: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -257,9 +284,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 /* Measurements strip at the foot of the hero */
 .hero-stats {
-  margin: 3.2rem 0 0;
-  padding-top: 1.4rem;
-  border-top: 1px solid var(--line);
+  margin: 1.5rem 0 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
