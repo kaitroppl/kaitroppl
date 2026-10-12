@@ -232,43 +232,40 @@ ul { list-style: none; margin: 0; padding: 0; }
   color: var(--ink-soft);
   font-weight: 300;
 }
-/* Hero triptych. The name is set over the pale studio floor at the foot of
-   the middle photo; it is sized in cqw so it scales with that photo, and
-   uses a fixed dark ink because it always sits on the light part of it. */
-.hero-photos {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  width: 100%;
-  margin: 0 0 1.6rem;
-}
+/* Hero photo, as wide as the gallery below. The name is set over the grey
+   backdrop on the left of the photo; it is sized in cqw so it scales with
+   the photo, and uses a fixed light ink because that area is always dark. */
 .hero-figure {
   position: relative;
-  margin: 0;
-  aspect-ratio: 2 / 3;
+  width: 100%;
+  margin: 0 0 1.6rem;
+  aspect-ratio: 3 / 2;
+  max-height: 70vh;
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--bg-alt);
+  container-type: inline-size;
 }
-.hero-main { container-type: inline-size; }
 .hero-figure img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 50% 30%;
   display: block;
 }
 .hero-figure .hero-title {
   position: absolute;
-  left: 0; right: 0; bottom: 6cqw;
+  left: 6cqw; top: 50%;
+  transform: translateY(-50%);
   margin: 0;
-  font-size: 15cqw;
-  color: #171512;
+  font-size: 8.5cqw;
+  line-height: .95;
+  text-align: left;
+  color: #faf8f4;
 }
-/* Phones: the middle photo runs full width, the other two sit beneath it */
 @media (max-width: 720px) {
   .hero { max-width: none; padding-left: 1rem; padding-right: 1rem; }
-  .hero-photos { grid-template-columns: repeat(2, 1fr); gap: .6rem; }
-  .hero-main { grid-column: 1 / -1; order: -1; }
+  .hero-figure { max-height: none; }
 }
 
 .hero-actions {
