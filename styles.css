@@ -280,7 +280,12 @@ ul { list-style: none; margin: 0; padding: 0; }
   white-space: nowrap;
 }
 @media (max-width: 720px) {
-  .hero-stats { gap: .6rem 1.4rem; max-width: 20rem; }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 1.1rem 1.8rem;
+  }
+  .hero-stats div { flex-direction: column; align-items: center; gap: .25rem; }
 }
 
 .hero-line {
