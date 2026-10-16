@@ -18,7 +18,7 @@ const COMPCARD_URL = "";
 // 2) Gallery — replace `src` with a real image path (e.g. "images/shoot-01.jpg")
 //    to swap out a placeholder. Leave src empty to keep the placeholder block.
 //    shape controls the crop: "portrait" | "landscape" | "square"
-//    category: "modeling" | "50mm" | "polaroids"
+//    category: "modeling" | "50mm" | "polaroids" | "ugc"
 const GALLERY_ITEMS = [
   // Pink knit sweater over check shirt
   { category: "modeling", shape: "portrait", src: "images/gabrielron-16.jpg", titleEn: "Look 01", titleJp: "ルック 01" },
@@ -110,6 +110,7 @@ const TRANSLATIONS = {
     filterModeling: "Portfolio",
     filterPhotography: "50mm",
     filterPolaroids: "Polaroids",
+    filterUgc: "UGC",
     galleryEmpty: "Coming soon.",
     aboutHeading: "About Me",
     aboutBody: "I work across editorial, commercial, and personal projects. Open to collaborations, bookings, and new ideas.",
@@ -140,6 +141,7 @@ const TRANSLATIONS = {
     filterModeling: "ポートフォリオ",
     filterPhotography: "50mm",
     filterPolaroids: "ポラロイド",
+    filterUgc: "UGC",
     galleryEmpty: "近日公開。",
     aboutHeading: "プロフィール",
     aboutBody: "エディトリアル、広告、個人制作まで幅広く手がけています。お仕事のご依頼・コラボレーションのご相談はお気軽にどうぞ。",
