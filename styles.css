@@ -305,7 +305,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   .hero-intro .hero-title, .hero-intro-text { text-align: center; }
   .hero-intro-text { padding-bottom: 0; }
   /* tighter tracking so the three-part title fits on one line on a phone */
-  .hero-intro .hero-eyebrow { font-size: .66rem; letter-spacing: .15em; }
+  .hero-intro .hero-eyebrow { font-size: .72rem; letter-spacing: .26em; }
   .hero-intro .hero-stats { flex-basis: auto; margin-top: .4rem; }
 }
 
