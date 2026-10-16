@@ -15,81 +15,110 @@ const SOCIAL_LINKS = {
 //     Contact is hidden until this is set to a real file.
 const COMPCARD_URL = "";
 
-// 2) Gallery — replace `src` with a real image path (e.g. "images/shoot-01.jpg")
-//    to swap out a placeholder. Leave src empty to keep the placeholder block.
-//    shape controls the crop: "portrait" | "landscape" | "square"
-//    category: "modeling" | "50mm" | "polaroids" | "ugc"
+// 2) Gallery — laid out two photos per row, in the order listed here, so keep
+//    pairs next to each other.
+//    shape: "portrait" (3:4) | "landscape" (3:2) | "wide" (16:9) — both photos
+//           in a pair should share a shape so the row lines up
+//           "full" spans the whole row on its own; give it a `ratio` like "3/2"
+//    pos:   optional, which part of the photo stays in view when trimmed ("40% 50%")
+//    A photo left without a partner (before a "full" one or at the end) is centred.
+//    category: "modeling" | "polaroids" | "ugc" | "50mm"
 const GALLERY_ITEMS = [
-  // Pink knit sweater over check shirt
-  { category: "modeling", shape: "portrait", src: "images/gabrielron-16.jpg", titleEn: "Look 01", titleJp: "ルック 01" },
-  { category: "modeling", shape: "portrait", src: "images/gabrielron-01.jpg", titleEn: "Look 02", titleJp: "ルック 02" },
-  { category: "modeling", shape: "portrait", src: "images/gabrielron-17.jpg", titleEn: "Look 03", titleJp: "ルック 03" },
-  { category: "modeling", shape: "portrait", src: "images/gabrielron-02.jpg", titleEn: "Look 04", titleJp: "ルック 04" },
-  { category: "modeling", shape: "portrait", src: "images/gabrielron-05.jpg", titleEn: "Look 05", titleJp: "ルック 05" },
-  { category: "modeling", shape: "portrait", src: "images/gabrielron-10.jpg", titleEn: "Look 06", titleJp: "ルック 06" },
-  { category: "modeling", shape: "portrait", src: "images/gabrielron-11.jpg", titleEn: "Look 07", titleJp: "ルック 07" },
-  // Black vest over striped shirt
-  { category: "modeling", shape: "portrait", src: "images/gabrielron-06.jpg", titleEn: "Look 08", titleJp: "ルック 08" },
-  { category: "modeling", shape: "portrait", src: "images/gabrielron-14.jpg", titleEn: "Look 09", titleJp: "ルック 09" },
-  { category: "modeling", shape: "portrait", src: "images/gabrielron-09.jpg", titleEn: "Look 10", titleJp: "ルック 10" },
-  { category: "modeling", shape: "portrait", src: "images/gabrielron-15.jpg", titleEn: "Look 11", titleJp: "ルック 11" },
-  { category: "modeling", shape: "portrait", src: "images/gabrielron-07.jpg", titleEn: "Look 12", titleJp: "ルック 12" },
-  { category: "modeling", shape: "portrait", src: "images/gabrielron-08.jpg", titleEn: "Look 13", titleJp: "ルック 13" },
-  // Cream knit cardigan
-  { category: "modeling", shape: "portrait", src: "images/gabrielron-04.jpg", titleEn: "Look 14", titleJp: "ルック 14" },
-  { category: "modeling", shape: "portrait", src: "images/gabrielron-03.jpg", titleEn: "Look 15", titleJp: "ルック 15" },
+  // Pink knit sweater
+  { category: "modeling", shape: "portrait", src: "images/gabrielron-01.jpg", titleEn: "Look 01", titleJp: "ルック 01" },
+  { category: "modeling", shape: "portrait", src: "images/gabrielron-17.jpg", titleEn: "Look 02", titleJp: "ルック 02" },
+  // AIUA: navy tee
+  { category: "modeling", shape: "portrait", pos: "40% 50%", src: "images/brand-12.jpg", titleEn: "AIUA 12", titleJp: "AIUA 12" },
+  { category: "modeling", shape: "portrait", src: "images/brand-11.jpg", titleEn: "AIUA 11", titleJp: "AIUA 11" },
+  // Glasses
+  { category: "modeling", shape: "portrait", src: "images/gabrielron-05.jpg", titleEn: "Look 03", titleJp: "ルック 03" },
+  { category: "modeling", shape: "portrait", src: "images/gabrielron-04.jpg", titleEn: "Look 04", titleJp: "ルック 04" },
   // Linen trousers, shirtless
-  { category: "modeling", shape: "portrait", src: "images/gabrielron-12.jpg", titleEn: "Look 16", titleJp: "ルック 16" },
-  { category: "modeling", shape: "portrait", src: "images/gabrielron-13.jpg", titleEn: "Look 17", titleJp: "ルック 17" },
+  { category: "modeling", shape: "portrait", src: "images/gabrielron-13.jpg", titleEn: "Look 05", titleJp: "ルック 05" },
+  { category: "modeling", shape: "portrait", src: "images/gabrielron-12.jpg", titleEn: "Look 06", titleJp: "ルック 06" },
+  // Black vest over striped shirt
+  { category: "modeling", shape: "portrait", src: "images/gabrielron-08.jpg", titleEn: "Look 07", titleJp: "ルック 07" },
+  { category: "modeling", shape: "portrait", src: "images/gabrielron-09.jpg", titleEn: "Look 08", titleJp: "ルック 08" },
+  // AIUA: group in the forest
+  { category: "modeling", shape: "full", ratio: "3/2", src: "images/brand-02.jpg", titleEn: "AIUA 02", titleJp: "AIUA 02" },
+  // Pink knit sweater, motion blur
+  { category: "modeling", shape: "portrait", src: "images/gabrielron-11.jpg", titleEn: "Look 09", titleJp: "ルック 09" },
+  { category: "modeling", shape: "portrait", src: "images/gabrielron-10.jpg", titleEn: "Look 10", titleJp: "ルック 10" },
+  // Pink knit sweater
+  { category: "modeling", shape: "portrait", src: "images/gabrielron-16.jpg", titleEn: "Look 11", titleJp: "ルック 11" },
+  { category: "modeling", shape: "portrait", src: "images/gabrielron-02.jpg", titleEn: "Look 12", titleJp: "ルック 12" },
+  // Black vest over striped shirt
+  { category: "modeling", shape: "portrait", src: "images/gabrielron-06.jpg", titleEn: "Look 13", titleJp: "ルック 13" },
+  { category: "modeling", shape: "portrait", src: "images/gabrielron-14.jpg", titleEn: "Look 14", titleJp: "ルック 14" },
+  // Black vest over striped shirt
+  { category: "modeling", shape: "portrait", src: "images/gabrielron-15.jpg", titleEn: "Look 15", titleJp: "ルック 15" },
+  { category: "modeling", shape: "portrait", src: "images/gabrielron-07.jpg", titleEn: "Look 16", titleJp: "ルック 16" },
+  // Cream knit cardigan (centred on its own)
+  { category: "modeling", shape: "portrait", src: "images/gabrielron-03.jpg", titleEn: "Look 17", titleJp: "ルック 17" },
+  // Tan overshirt with camera
+  { category: "modeling", shape: "full", ratio: "3/2", src: "images/modeling-08.jpg", titleEn: "Look 18", titleJp: "ルック 18" },
+  // Tan overshirt with camera
+  { category: "modeling", shape: "portrait", src: "images/modeling-04.jpg", titleEn: "Look 19", titleJp: "ルック 19" },
+  { category: "modeling", shape: "portrait", src: "images/modeling-05.jpg", titleEn: "Look 20", titleJp: "ルック 20" },
   // Black tank, black and white
-  { category: "modeling", shape: "portrait", src: "images/modeling-03.jpg", titleEn: "Look 18", titleJp: "ルック 18" },
-  { category: "modeling", shape: "portrait", src: "images/modeling-01.jpg", titleEn: "Look 19", titleJp: "ルック 19" },
-  { category: "modeling", shape: "portrait", src: "images/modeling-02.jpg", titleEn: "Look 20", titleJp: "ルック 20" },
   { category: "modeling", shape: "portrait", src: "images/modeling-06.jpg", titleEn: "Look 21", titleJp: "ルック 21" },
   { category: "modeling", shape: "portrait", src: "images/modeling-07.jpg", titleEn: "Look 22", titleJp: "ルック 22" },
-  // Tan overshirt with camera
-  { category: "modeling", shape: "portrait", src: "images/modeling-04.jpg", titleEn: "Look 23", titleJp: "ルック 23" },
-  { category: "modeling", shape: "portrait", src: "images/modeling-05.jpg", titleEn: "Look 24", titleJp: "ルック 24" },
-  { category: "modeling", shape: "landscape", src: "images/modeling-08.jpg", titleEn: "Look 25", titleJp: "ルック 25" },
-  // AIUA: navy tee
-  { category: "modeling", shape: "auto wide", ratio: "2000/1333", src: "images/brand-10.jpg", titleEn: "AIUA 10", titleJp: "AIUA 10" },
-  { category: "modeling", shape: "auto", ratio: "1333/2000", src: "images/brand-09.jpg", titleEn: "AIUA 09", titleJp: "AIUA 09" },
-  { category: "modeling", shape: "auto wide", ratio: "2000/1333", src: "images/brand-12.jpg", titleEn: "AIUA 12", titleJp: "AIUA 12" },
-  { category: "modeling", shape: "auto", ratio: "1599/2000", src: "images/brand-11.jpg", titleEn: "AIUA 11", titleJp: "AIUA 11" },
-  // AIUA: grey long sleeve
-  { category: "modeling", shape: "auto wide", ratio: "2000/1333", src: "images/brand-05.jpg", titleEn: "AIUA 05", titleJp: "AIUA 05" },
-  { category: "modeling", shape: "auto", ratio: "1599/2000", src: "images/brand-04.jpg", titleEn: "AIUA 04", titleJp: "AIUA 04" },
-  // AIUA: navy tank and group shots
-  { category: "modeling", shape: "auto wide", ratio: "2000/1333", src: "images/brand-06.jpg", titleEn: "AIUA 06", titleJp: "AIUA 06" },
-  { category: "modeling", shape: "auto", ratio: "1428/2000", src: "images/brand-07.jpg", titleEn: "AIUA 07", titleJp: "AIUA 07" },
-  { category: "modeling", shape: "auto wide", ratio: "2000/1333", src: "images/brand-02.jpg", titleEn: "AIUA 02", titleJp: "AIUA 02" },
-  { category: "modeling", shape: "auto wide", ratio: "2000/1333", src: "images/brand-03.jpg", titleEn: "AIUA 03", titleJp: "AIUA 03" },
-  { category: "50mm", shape: "auto wide", ratio: "2000/1125", src: "images/photography-02.jpg", titleEn: "Frame 02", titleJp: "フレーム 02" },
-  { category: "50mm", shape: "auto", ratio: "1125/2000", src: "images/photography-03.jpg", titleEn: "Frame 03", titleJp: "フレーム 03" },
-  { category: "50mm", shape: "auto wide", ratio: "2000/1125", src: "images/photography-04.jpg", titleEn: "Frame 04", titleJp: "フレーム 04" },
-  { category: "50mm", shape: "auto", ratio: "1240/2000", src: "images/photography-05.jpg", titleEn: "Frame 05", titleJp: "フレーム 05" },
-  { category: "50mm", shape: "auto wide", ratio: "2000/1125", src: "images/photography-06.jpg", titleEn: "Frame 06", titleJp: "フレーム 06" },
-  { category: "50mm", shape: "auto wide", ratio: "2000/1212", src: "images/photography-07.jpg", titleEn: "Frame 07", titleJp: "フレーム 07" },
-  { category: "50mm", shape: "auto wide", ratio: "2000/1125", src: "images/photography-08.jpg", titleEn: "Frame 08", titleJp: "フレーム 08" },
-  { category: "50mm", shape: "auto", ratio: "1501/2000", src: "images/photography-09.jpg", titleEn: "Frame 09", titleJp: "フレーム 09" },
-  { category: "50mm", shape: "auto wide", ratio: "2000/1501", src: "images/photography-10.jpg", titleEn: "Frame 10", titleJp: "フレーム 10" },
-  { category: "50mm", shape: "auto", ratio: "1501/2000", src: "images/photography-11.jpg", titleEn: "Frame 11", titleJp: "フレーム 11" },
-  { category: "50mm", shape: "auto wide", ratio: "2000/1501", src: "images/photography-12.jpg", titleEn: "Frame 12", titleJp: "フレーム 12" },
-  { category: "50mm", shape: "auto wide", ratio: "2000/1501", src: "images/photography-13.jpg", titleEn: "Frame 13", titleJp: "フレーム 13" },
-  { category: "50mm", shape: "auto", ratio: "1501/2000", src: "images/photography-14.jpg", titleEn: "Frame 14", titleJp: "フレーム 14" },
-  { category: "50mm", shape: "auto", ratio: "1501/2000", src: "images/photography-15.jpg", titleEn: "Frame 15", titleJp: "フレーム 15" },
-  { category: "50mm", shape: "auto wide", ratio: "2000/1125", src: "images/photography-16.jpg", titleEn: "Frame 16", titleJp: "フレーム 16" },
-  { category: "50mm", shape: "auto wide", ratio: "2000/1125", src: "images/photography-17.jpg", titleEn: "Frame 17", titleJp: "フレーム 17" },
-  { category: "50mm", shape: "auto wide", ratio: "2000/1125", src: "images/photography-18.jpg", titleEn: "Frame 18", titleJp: "フレーム 18" },
-  { category: "50mm", shape: "auto wide", ratio: "2000/1125", src: "images/photography-19.jpg", titleEn: "Frame 19", titleJp: "フレーム 19" },
-  { category: "50mm", shape: "auto wide", ratio: "2000/1125", src: "images/photography-20.jpg", titleEn: "Frame 20", titleJp: "フレーム 20" },
-  { category: "polaroids", shape: "auto", ratio: "1333/2000", src: "images/polaroid-01.jpg", titleEn: "Polaroid 01", titleJp: "ポラロイド 01" },
-  { category: "polaroids", shape: "auto", ratio: "1333/2000", src: "images/polaroid-02.jpg", titleEn: "Polaroid 02", titleJp: "ポラロイド 02" },
-  { category: "polaroids", shape: "auto", ratio: "1333/2000", src: "images/polaroid-03.jpg", titleEn: "Polaroid 03", titleJp: "ポラロイド 03" },
-  { category: "polaroids", shape: "auto", ratio: "1333/2000", src: "images/polaroid-04.jpg", titleEn: "Polaroid 04", titleJp: "ポラロイド 04" },
-  { category: "polaroids", shape: "auto", ratio: "1333/2000", src: "images/polaroid-05.jpg", titleEn: "Polaroid 05", titleJp: "ポラロイド 05" },
-  { category: "polaroids", shape: "auto", ratio: "1333/2000", src: "images/polaroid-06.jpg", titleEn: "Polaroid 06", titleJp: "ポラロイド 06" },
-  { category: "polaroids", shape: "auto", ratio: "1333/2000", src: "images/polaroid-07.jpg", titleEn: "Polaroid 07", titleJp: "ポラロイド 07" },
+  // Black tank, black and white
+  { category: "modeling", shape: "portrait", src: "images/modeling-03.jpg", titleEn: "Look 23", titleJp: "ルック 23" },
+  { category: "modeling", shape: "portrait", src: "images/modeling-01.jpg", titleEn: "Look 24", titleJp: "ルック 24" },
+  // Black tank, black and white (centred on its own)
+  { category: "modeling", shape: "portrait", src: "images/modeling-02.jpg", titleEn: "Look 25", titleJp: "ルック 25" },
+  // AIUA: group in the field
+  { category: "modeling", shape: "full", ratio: "3/2", src: "images/brand-06.jpg", titleEn: "AIUA 06", titleJp: "AIUA 06" },
+  // AIUA: navy tee by the water
+  { category: "modeling", shape: "portrait", src: "images/brand-09.jpg", titleEn: "AIUA 09", titleJp: "AIUA 09" },
+  { category: "modeling", shape: "portrait", pos: "42% 50%", src: "images/brand-10.jpg", titleEn: "AIUA 10", titleJp: "AIUA 10" },
+  // AIUA: navy tank and grey long sleeve
+  { category: "modeling", shape: "portrait", src: "images/brand-07.jpg", titleEn: "AIUA 07", titleJp: "AIUA 07" },
+  { category: "modeling", shape: "portrait", src: "images/brand-04.jpg", titleEn: "AIUA 04", titleJp: "AIUA 04" },
+  // AIUA: grey long sleeve and forest walk
+  { category: "modeling", shape: "landscape", src: "images/brand-05.jpg", titleEn: "AIUA 05", titleJp: "AIUA 05" },
+  { category: "modeling", shape: "landscape", src: "images/brand-03.jpg", titleEn: "AIUA 03", titleJp: "AIUA 03" },
+  // Polaroids: full length
+  { category: "polaroids", shape: "portrait", src: "images/polaroid-01.jpg", titleEn: "Polaroid 01", titleJp: "ポラロイド 01" },
+  { category: "polaroids", shape: "portrait", src: "images/polaroid-07.jpg", titleEn: "Polaroid 07", titleJp: "ポラロイド 07" },
+  // Polaroids: headshots
+  { category: "polaroids", shape: "portrait", src: "images/polaroid-02.jpg", titleEn: "Polaroid 02", titleJp: "ポラロイド 02" },
+  { category: "polaroids", shape: "portrait", src: "images/polaroid-03.jpg", titleEn: "Polaroid 03", titleJp: "ポラロイド 03" },
+  // Polaroids: profiles
+  { category: "polaroids", shape: "portrait", src: "images/polaroid-04.jpg", titleEn: "Polaroid 04", titleJp: "ポラロイド 04" },
+  { category: "polaroids", shape: "portrait", src: "images/polaroid-05.jpg", titleEn: "Polaroid 05", titleJp: "ポラロイド 05" },
+  // Polaroids: waist up (centred on its own)
+  { category: "polaroids", shape: "portrait", src: "images/polaroid-06.jpg", titleEn: "Polaroid 06", titleJp: "ポラロイド 06" },
+  // 50mm
+  { category: "50mm", shape: "full", ratio: "16/9", src: "images/photography-02.jpg", titleEn: "Frame 02", titleJp: "フレーム 02" },
+  // 50mm
+  { category: "50mm", shape: "portrait", src: "images/photography-03.jpg", titleEn: "Frame 03", titleJp: "フレーム 03" },
+  { category: "50mm", shape: "portrait", src: "images/photography-05.jpg", titleEn: "Frame 05", titleJp: "フレーム 05" },
+  // 50mm
+  { category: "50mm", shape: "wide", src: "images/photography-04.jpg", titleEn: "Frame 04", titleJp: "フレーム 04" },
+  { category: "50mm", shape: "wide", src: "images/photography-06.jpg", titleEn: "Frame 06", titleJp: "フレーム 06" },
+  // 50mm
+  { category: "50mm", shape: "portrait", src: "images/photography-09.jpg", titleEn: "Frame 09", titleJp: "フレーム 09" },
+  { category: "50mm", shape: "portrait", src: "images/photography-11.jpg", titleEn: "Frame 11", titleJp: "フレーム 11" },
+  // 50mm
+  { category: "50mm", shape: "wide", src: "images/photography-08.jpg", titleEn: "Frame 08", titleJp: "フレーム 08" },
+  { category: "50mm", shape: "wide", src: "images/photography-16.jpg", titleEn: "Frame 16", titleJp: "フレーム 16" },
+  // 50mm
+  { category: "50mm", shape: "landscape", src: "images/photography-10.jpg", titleEn: "Frame 10", titleJp: "フレーム 10" },
+  { category: "50mm", shape: "landscape", src: "images/photography-12.jpg", titleEn: "Frame 12", titleJp: "フレーム 12" },
+  // 50mm
+  { category: "50mm", shape: "portrait", src: "images/photography-14.jpg", titleEn: "Frame 14", titleJp: "フレーム 14" },
+  { category: "50mm", shape: "portrait", src: "images/photography-15.jpg", titleEn: "Frame 15", titleJp: "フレーム 15" },
+  // 50mm
+  { category: "50mm", shape: "wide", src: "images/photography-17.jpg", titleEn: "Frame 17", titleJp: "フレーム 17" },
+  { category: "50mm", shape: "wide", src: "images/photography-18.jpg", titleEn: "Frame 18", titleJp: "フレーム 18" },
+  // 50mm
+  { category: "50mm", shape: "landscape", src: "images/photography-13.jpg", titleEn: "Frame 13", titleJp: "フレーム 13" },
+  { category: "50mm", shape: "landscape", src: "images/photography-07.jpg", titleEn: "Frame 07", titleJp: "フレーム 07" },
+  // 50mm
+  { category: "50mm", shape: "wide", src: "images/photography-19.jpg", titleEn: "Frame 19", titleJp: "フレーム 19" },
+  { category: "50mm", shape: "wide", src: "images/photography-20.jpg", titleEn: "Frame 20", titleJp: "フレーム 20" },
 ];
 
 // 3) Text — every data-i18n="key" element in index.html pulls from here.
@@ -250,14 +279,15 @@ function renderSocialLinks() {
 function renderGallery() {
   const grid = document.getElementById("galleryGrid");
   grid.innerHTML = GALLERY_ITEMS.map((item, i) => {
-    const ratioStyle = item.ratio ? ` style="aspect-ratio:${item.ratio}"` : "";
+    const boxStyle = item.shape === "full" && item.ratio ? ` style="aspect-ratio:${item.ratio}"` : "";
+    const posStyle = item.pos ? ` style="object-position:${item.pos}"` : "";
     const media = item.src
-      ? `<img src="${item.src}" alt="${item.titleEn}" loading="lazy"${ratioStyle}>`
+      ? `<img src="${item.src}" alt="${item.titleEn}" loading="lazy"${posStyle}>`
       : `<div class="placeholder-box" aria-hidden="true">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.3"/><circle cx="9" cy="10.5" r="1.6" stroke="currentColor" stroke-width="1.3"/><path d="m5 17 4.5-4.5 3 3L18 10" stroke="currentColor" stroke-width="1.3"/></svg>
         </div>`;
     return `
-      <figure class="gallery-item ${item.shape}" data-category="${item.category}" data-index="${i}">
+      <figure class="gallery-item ${item.shape}" data-category="${item.category}" data-index="${i}"${boxStyle}>
         ${media}
         <figcaption class="gallery-caption">
           <span>${item.titleEn}</span>
@@ -269,33 +299,22 @@ function renderGallery() {
   grid.querySelectorAll(".gallery-item").forEach((el) => {
     el.addEventListener("click", () => openLightbox(Number(el.dataset.index)));
   });
-
-  // "auto"-shaped photos size themselves from the real image, so their
-  // height (and therefore masonry row-span) is only known once it loads.
-  grid.querySelectorAll("img").forEach((img) => {
-    if (img.complete) return;
-    img.addEventListener("load", layoutMasonry);
-  });
 }
 
-// True masonry: give each item a grid-row-end matching its actual rendered
-// height (in --gallery-row units) so items pack tightly with no dead space,
-// instead of every item in a row being forced to the tallest one's height.
-function layoutMasonry() {
-  const grid = document.getElementById("galleryGrid");
-  if (!grid) return;
-  const style = getComputedStyle(grid);
-  const rowUnit = parseFloat(style.getPropertyValue("--gallery-row")) || 4;
-  const gap = parseFloat(style.rowGap) || 0;
-  grid.querySelectorAll(".gallery-item:not(.hidden)").forEach((item) => {
-    const height = item.getBoundingClientRect().height;
-    if (height <= 0) return;
-    // Each spanned row actually consumes (rowUnit + gap) of vertical space
-    // (the grid adds one gap between every pair of row tracks), so the gap
-    // has to factor into the span count or items fall short of their real height.
-    const span = Math.ceil((height + gap) / (rowUnit + gap));
-    item.style.gridRowEnd = `span ${span}`;
+// Photos sit two to a row. One left without a partner (just before a "full"
+// photo, or last in the tab) gets .solo so it is centred instead of hanging left.
+function markSolos() {
+  let open = null;
+  document.querySelectorAll(".gallery-item").forEach((el) => el.classList.remove("solo"));
+  document.querySelectorAll(".gallery-item:not(.hidden)").forEach((el) => {
+    if (el.classList.contains("full")) {
+      if (open) open.classList.add("solo");
+      open = null;
+    } else {
+      open = open ? null : el;
+    }
   });
+  if (open) open.classList.add("solo");
 }
 
 function applyFilter(filter) {
@@ -307,7 +326,7 @@ function applyFilter(filter) {
     el.classList.toggle("hidden", el.dataset.category !== filter);
   });
   document.getElementById("galleryEmpty").hidden = visibleIndices().length > 0;
-  layoutMasonry();
+  markSolos();
 }
 
 function visibleIndices() {
@@ -390,7 +409,7 @@ function init() {
   let resizeTimer;
   window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => { layoutMasonry(); fitHero(); }, 150);
+    resizeTimer = setTimeout(fitHero, 150);
   });
 
   document.querySelectorAll(".lang-switch button").forEach((btn) =>

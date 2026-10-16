@@ -414,19 +414,13 @@ main section { padding: 6rem clamp(1.25rem, 5vw, 4rem); max-width: var(--max); m
 .filter-btn.active { background: var(--ink); border-color: var(--ink); color: var(--bg); }
 
 /* ---------- Gallery ---------- */
-/* True masonry: each item's grid-row-end is computed in JS (layoutMasonry())
-   from its actual rendered height, in units of --gallery-row. Row-based grid
-   sizing alone can't do this — a row's height is set by its tallest item,
-   which leaves dead space under shorter neighbors. */
+/* Two photos per row, like spreads in a lookbook. Both photos in a row share
+   a shape (portrait / landscape / wide) so the row lines up; "full" spans the
+   row on its own; .solo (set in script.js) centres a photo without a partner. */
 .gallery-grid {
-  --gallery-row: 4px;
-  --gallery-gap: 1.5rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-flow: dense;
-  grid-auto-rows: var(--gallery-row);
-  align-items: start;
-  gap: var(--gallery-gap);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 3rem) 1.5rem;
 }
 .gallery-item {
   position: relative;
@@ -435,11 +429,16 @@ main section { padding: 6rem clamp(1.25rem, 5vw, 4rem); max-width: var(--max); m
   cursor: pointer;
   background: var(--bg-alt);
   margin: 0;
+  aspect-ratio: 3 / 4;
 }
-.gallery-item.portrait { aspect-ratio: 3 / 4; }
-.gallery-item.landscape { aspect-ratio: 4 / 3; }
-.gallery-item.square { aspect-ratio: 1 / 1; }
-.gallery-item.auto { aspect-ratio: auto; }
+.gallery-item.landscape { aspect-ratio: 3 / 2; }
+.gallery-item.wide { aspect-ratio: 16 / 9; }
+.gallery-item.full { grid-column: 1 / -1; aspect-ratio: 3 / 2; }
+.gallery-item.solo {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc(50% - .75rem);
+}
 .gallery-item.hidden { display: none; }
 
 .gallery-item img {
@@ -450,25 +449,15 @@ main section { padding: 6rem clamp(1.25rem, 5vw, 4rem); max-width: var(--max); m
 }
 .gallery-item:hover img { transform: scale(1.05); }
 
-/* "auto" shape shows the full image at its natural ratio — no crop */
-.gallery-item.auto img { height: auto; object-fit: contain; }
-
-/* "wide" bumps landscape shots to a bigger scale by spanning two of the
-   grid's three fixed columns */
-.gallery-item.wide { grid-column: span 2; }
-
-/* Phones: two images per row, so "wide" no longer takes a whole row */
+/* Phones: still two per row, with tighter spacing */
 @media (max-width: 720px) {
   main section { padding-top: 3.5rem; padding-bottom: 3.5rem; }
   .work { max-width: none; padding-top: 2rem; padding-left: 1rem; padding-right: 1rem; }
   .section-head { margin-bottom: 1.6rem; gap: 1rem; }
   .filters { flex-wrap: wrap; gap: .4rem; }
   .filter-btn { padding: .45rem .85rem; font-size: .7rem; }
-  .gallery-grid {
-    --gallery-gap: .6rem;
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .gallery-item.wide { grid-column: span 1; }
+  .gallery-grid { gap: 1rem .6rem; }
+  .gallery-item.solo { width: calc(50% - .3rem); }
 }
 
 .gallery-empty {
