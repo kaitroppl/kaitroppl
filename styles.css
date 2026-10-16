@@ -417,6 +417,18 @@ main section { padding: 6rem clamp(1.25rem, 5vw, 4rem); max-width: var(--max); m
 /* Two photos per row, like spreads in a lookbook. Both photos in a row share
    a shape (portrait / landscape / wide) so the row lines up; "full" spans the
    row on its own; .solo (set in script.js) centres a photo without a partner. */
+.work {
+  /* tallest a photo may be and still fit on screen below the header */
+  --fit-h: calc(100vh - 140px);
+}
+/* the gallery (and the heading and tabs above it) is kept narrow enough that a
+   portrait pair (3:4) is never taller than the screen */
+.work .section-head,
+.gallery-grid {
+  max-width: calc(var(--fit-h) * 3 / 4 * 2 + 1.5rem);
+  margin-left: auto;
+  margin-right: auto;
+}
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -433,7 +445,7 @@ main section { padding: 6rem clamp(1.25rem, 5vw, 4rem); max-width: var(--max); m
 }
 .gallery-item.landscape { aspect-ratio: 3 / 2; }
 .gallery-item.wide { aspect-ratio: 16 / 9; }
-.gallery-item.full { grid-column: 1 / -1; aspect-ratio: 3 / 2; }
+.gallery-item.full { grid-column: 1 / -1; aspect-ratio: 3 / 2; max-height: var(--fit-h); }
 .gallery-item.solo {
   grid-column: 1 / -1;
   justify-self: center;
