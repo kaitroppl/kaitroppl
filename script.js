@@ -276,7 +276,9 @@ function renderSocialLinks() {
 function renderGallery() {
   const grid = document.getElementById("galleryGrid");
   grid.innerHTML = GALLERY_ITEMS.map((item, i) => {
-    const boxStyle = item.shape === "full" && item.ratio ? ` style="aspect-ratio:${item.ratio}"` : "";
+    // --r (width ÷ height) lets CSS cap a full-row photo at screen height
+    const [rw, rh] = (item.ratio || "3/2").split("/").map(Number);
+    const boxStyle = item.shape === "full" ? ` style="aspect-ratio:${rw} / ${rh};--r:${rw / rh}"` : "";
     const posStyle = item.pos ? ` style="object-position:${item.pos}"` : "";
     const media = item.src
       ? `<img src="${item.src}" alt="${item.titleEn}" loading="lazy"${posStyle}>`

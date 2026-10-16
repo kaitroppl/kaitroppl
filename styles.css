@@ -447,7 +447,14 @@ main section { padding: 6rem clamp(1.25rem, 5vw, 4rem); max-width: var(--max); m
 }
 .gallery-item.landscape { aspect-ratio: 3 / 2; }
 .gallery-item.wide { aspect-ratio: 16 / 9; }
-.gallery-item.full { grid-column: 1 / -1; aspect-ratio: 3 / 2; max-height: var(--fit-h); }
+/* full-row photos are capped at screen height, which can make them narrower
+   than the row, so keep them centred */
+.gallery-item.full {
+  grid-column: 1 / -1;
+  justify-self: center;
+  aspect-ratio: 3 / 2;
+  width: min(100%, calc(var(--fit-h) * var(--r, 1.5)));
+}
 .gallery-item.solo {
   grid-column: 1 / -1;
   justify-self: center;
