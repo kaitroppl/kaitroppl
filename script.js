@@ -98,7 +98,7 @@ const TRANSLATIONS = {
     navWork: "Work",
     navAbout: "About",
     navContact: "Contact",
-    heroRole: "Model — Photographer",
+    heroRole: "Model — Content Creator — Photographer",
     heroTagline: "Capturing and being captured.",
     heroCta: "View Work",
     statHeight: "Height",
@@ -129,7 +129,7 @@ const TRANSLATIONS = {
     navAbout: "プロフィール",
     navBrands: "ブランド",
     navContact: "連絡先",
-    heroRole: "モデル ― フォトグラファー",
+    heroRole: "モデル ― コンテンツクリエイター ― フォトグラファー",
     heroTagline: "撮る、そして撮られる。",
     heroCta: "作品を見る",
     statHeight: "身長",
@@ -195,6 +195,28 @@ function setLang(lang) {
     btn.classList.toggle("active", btn.dataset.lang === lang);
   });
   applyTranslations();
+  fitHero();
+}
+
+// On desktop the measurements move up between the name and the intro text
+// when they fit there exactly centred; otherwise they stay on their own line.
+// Depends on how long the name and title are, so it is measured, not assumed.
+function fitHero() {
+  const intro = document.querySelector(".hero-intro");
+  const stats = intro.querySelector(".hero-stats");
+  intro.classList.remove("stats-inline");
+  if (!window.matchMedia("(min-width: 960px)").matches) return;
+  intro.classList.add("stats-inline");
+  const box = (el) => el.getBoundingClientRect();
+  const centre = (el) => (box(el).left + box(el).right) / 2;
+  const title = intro.querySelector(".hero-title");
+  const text = intro.querySelector(".hero-intro-text");
+  const fits =
+    intro.scrollWidth <= intro.clientWidth + 1 &&
+    Math.abs(centre(stats) - centre(intro)) < 2 &&
+    box(stats).left - box(title).right >= 20 &&
+    box(text).left - box(stats).right >= 20;
+  intro.classList.toggle("stats-inline", fits);
 }
 
 function renderSocialLinks() {
@@ -362,11 +384,13 @@ function init() {
   applyFilter(currentFilter);
   applyTranslations();
   initNav();
+  fitHero();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitHero);
 
   let resizeTimer;
   window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(layoutMasonry, 150);
+    resizeTimer = setTimeout(() => { layoutMasonry(); fitHero(); }, 150);
   });
 
   document.querySelectorAll(".lang-switch button").forEach((btn) =>

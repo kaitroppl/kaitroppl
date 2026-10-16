@@ -262,8 +262,9 @@ ul { list-style: none; margin: 0; padding: 0; }
 /* Measurements wrap onto their own centred line by default... */
 .hero-intro .hero-stats { flex-basis: 100%; margin-top: 1.4rem; }
 /* Desktop: name left, intro text right, measurements as a single line.
-   Up to 1399px that line sits centred just beneath; from 1400px there is
-   room for it dead centre on the same line as the name and intro text. */
+   That line sits centred just beneath by default. When there is room for it
+   dead centre between the name and the intro text, script.js (fitHero) adds
+   .stats-inline and it moves up onto the same line. */
 @media (min-width: 960px) {
   .hero-intro {
     display: grid;
@@ -271,24 +272,24 @@ ul { list-style: none; margin: 0; padding: 0; }
     align-items: end;
     gap: 0 1.5rem;
   }
-  .hero-intro .hero-title { grid-area: 1 / 1; justify-self: start; }
-  .hero-intro-text { grid-area: 1 / 3; justify-self: end; }
+  .hero-intro .hero-title { grid-area: 1 / 1; justify-self: start; white-space: nowrap; }
+  .hero-intro-text { grid-area: 1 / 3; justify-self: end; white-space: nowrap; }
   .hero-intro .hero-stats {
     grid-area: 2 / 1 / 3 / -1;
     margin: 1.3rem 0 0;
     flex-wrap: nowrap;
   }
 }
-@media (min-width: 1400px) {
-  .hero-intro .hero-stats {
+@media (min-width: 960px) {
+  .hero-intro.stats-inline .hero-stats {
     grid-area: 1 / 2;
     margin: 0;
     padding-bottom: .45rem;
     gap: 0 clamp(.9rem, 1.25vw, 1.5rem);
   }
-  .hero-intro .hero-stats div { gap: .4rem; }
-  .hero-intro .hero-stats dt { font-size: .62rem; letter-spacing: .12em; }
-  .hero-intro .hero-stats dd { font-size: .8rem; }
+  .hero-intro.stats-inline .hero-stats div { gap: .4rem; }
+  .hero-intro.stats-inline .hero-stats dt { font-size: .62rem; letter-spacing: .12em; }
+  .hero-intro.stats-inline .hero-stats dd { font-size: .8rem; }
 }
 .hero-intro .hero-title {
   font-size: clamp(2.6rem, 4.6vw, 4.4rem);
@@ -303,6 +304,8 @@ ul { list-style: none; margin: 0; padding: 0; }
   .hero-intro { flex-direction: column; align-items: center; gap: 1rem; margin-top: 1.4rem; }
   .hero-intro .hero-title, .hero-intro-text { text-align: center; }
   .hero-intro-text { padding-bottom: 0; }
+  /* tighter tracking so the three-part title fits on one line on a phone */
+  .hero-intro .hero-eyebrow { font-size: .66rem; letter-spacing: .15em; }
   .hero-intro .hero-stats { flex-basis: auto; margin-top: .4rem; }
 }
 
