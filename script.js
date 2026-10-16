@@ -73,7 +73,7 @@ const GALLERY_ITEMS = [
   { category: "modeling", shape: "full", ratio: "3/2", src: "images/brand-06.jpg", titleEn: "AIUA 06", titleJp: "AIUA 06" },
   // AIUA: navy tee by the water
   { category: "modeling", shape: "portrait", src: "images/brand-09.jpg", titleEn: "AIUA 09", titleJp: "AIUA 09" },
-  { category: "modeling", shape: "portrait", pos: "42% 50%", src: "images/brand-10.jpg", titleEn: "AIUA 10", titleJp: "AIUA 10" },
+  { category: "modeling", shape: "portrait", pos: "84% 50%", src: "images/brand-10.jpg", titleEn: "AIUA 10", titleJp: "AIUA 10" },
   // AIUA: forest walk
   { category: "modeling", shape: "full", ratio: "3/2", src: "images/brand-03.jpg", titleEn: "AIUA 03", titleJp: "AIUA 03" },
   // Polaroids: full length
