@@ -66,16 +66,16 @@ const GALLERY_ITEMS = [
   // Black tank, black and white
   { category: "modeling", shape: "portrait", src: "images/modeling-03.jpg", titleEn: "Look 23", titleJp: "ルック 23" },
   { category: "modeling", shape: "portrait", src: "images/modeling-01.jpg", titleEn: "Look 24", titleJp: "ルック 24" },
-  // AIUA: grey long sleeve (centred on its own)
+  // AIUA: grey long sleeve
   { category: "modeling", shape: "portrait", src: "images/brand-04.jpg", titleEn: "AIUA 04", titleJp: "AIUA 04" },
+  { category: "modeling", shape: "portrait", pos: "12% 50%", src: "images/brand-05.jpg", titleEn: "AIUA 05", titleJp: "AIUA 05" },
   // AIUA: group in the field
   { category: "modeling", shape: "full", ratio: "3/2", src: "images/brand-06.jpg", titleEn: "AIUA 06", titleJp: "AIUA 06" },
   // AIUA: navy tee by the water
   { category: "modeling", shape: "portrait", src: "images/brand-09.jpg", titleEn: "AIUA 09", titleJp: "AIUA 09" },
   { category: "modeling", shape: "portrait", pos: "42% 50%", src: "images/brand-10.jpg", titleEn: "AIUA 10", titleJp: "AIUA 10" },
-  // AIUA: grey long sleeve and forest walk
-  { category: "modeling", shape: "landscape", src: "images/brand-05.jpg", titleEn: "AIUA 05", titleJp: "AIUA 05" },
-  { category: "modeling", shape: "landscape", src: "images/brand-03.jpg", titleEn: "AIUA 03", titleJp: "AIUA 03" },
+  // AIUA: forest walk
+  { category: "modeling", shape: "full", ratio: "3/2", src: "images/brand-03.jpg", titleEn: "AIUA 03", titleJp: "AIUA 03" },
   // Polaroids: full length
   { category: "polaroids", shape: "portrait", src: "images/polaroid-01.jpg", titleEn: "Polaroid 01", titleJp: "ポラロイド 01" },
   { category: "polaroids", shape: "portrait", src: "images/polaroid-07.jpg", titleEn: "Polaroid 07", titleJp: "ポラロイド 07" },
