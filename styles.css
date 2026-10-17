@@ -414,51 +414,34 @@ main section { padding: 6rem clamp(1.25rem, 5vw, 4rem); max-width: var(--max); m
 .filter-btn.active { background: var(--ink); border-color: var(--ink); color: var(--bg); }
 
 /* ---------- Gallery ---------- */
-/* Two photos per row, like spreads in a lookbook. Both photos in a row share
-   a shape (portrait / landscape / wide) so the row lines up; "full" spans the
-   row on its own; .solo (set in script.js) centres a photo without a partner. */
+/* Two photos per row, like spreads in a lookbook. script.js (layoutRows) groups
+   the photos into .gallery-row and sizes each one from its own shape, so both
+   photos in a row are the same height and none is cropped. */
 .work {
   /* tallest a photo may be and still fit on screen below the header */
   --fit-h: calc(100vh - 140px);
   /* white space between the two photos of a pair */
   --pair-gap: clamp(2.5rem, 6vw, 6.5rem);
 }
-/* the gallery (and the heading and tabs above it) is kept narrow enough that a
-   portrait pair (3:4) is never taller than the screen */
-.work .section-head,
 .gallery-grid {
-  max-width: calc(var(--fit-h) * 3 / 4 * 2 + var(--pair-gap));
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vw, 3rem);
 }
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(1.5rem, 3vw, 3rem) var(--pair-gap);
+.gallery-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--pair-gap);
 }
 .gallery-item {
   position: relative;
+  flex: none;
   overflow: hidden;
   border-radius: var(--radius);
   cursor: pointer;
   background: var(--bg-alt);
   margin: 0;
-  aspect-ratio: 3 / 4;
-}
-.gallery-item.landscape { aspect-ratio: 3 / 2; }
-.gallery-item.wide { aspect-ratio: 16 / 9; }
-/* full-row photos are capped at screen height, which can make them narrower
-   than the row, so keep them centred */
-.gallery-item.full {
-  grid-column: 1 / -1;
-  justify-self: center;
-  aspect-ratio: 3 / 2;
-  width: min(100%, calc(var(--fit-h) * var(--r, 1.5)));
-}
-.gallery-item.solo {
-  grid-column: 1 / -1;
-  justify-self: center;
-  width: calc(50% - var(--pair-gap) / 2);
 }
 .gallery-item.hidden { display: none; }
 
@@ -478,7 +461,7 @@ main section { padding: 6rem clamp(1.25rem, 5vw, 4rem); max-width: var(--max); m
   .filters { flex-wrap: wrap; gap: .4rem; }
   .filter-btn { padding: .45rem .85rem; font-size: .7rem; }
   .work { --pair-gap: .6rem; }
-  .gallery-grid { row-gap: 1rem; }
+  .gallery-grid { gap: 1rem; }
 }
 
 .gallery-empty {
