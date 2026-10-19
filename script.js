@@ -234,7 +234,7 @@ function fitHero() {
   intro.classList.add("stats-inline");
   const box = (el) => el.getBoundingClientRect();
   const centre = (el) => (box(el).left + box(el).right) / 2;
-  const title = intro.querySelector(".hero-title");
+  const title = intro.querySelector(".hero-name");
   const text = intro.querySelector(".hero-intro-text");
   const fits =
     intro.scrollWidth <= intro.clientWidth + 1 &&
