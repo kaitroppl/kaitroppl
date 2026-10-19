@@ -145,6 +145,7 @@ const TRANSLATIONS = {
     aboutLabelFocusVal: "Editorial · Portrait · Fashion",
     contactHeading: "Contact",
     contactBody: "For bookings, collaborations, or just to say hello.",
+    agencyLabel: "Represented by",
     compcardLabel: "Download Comp Card",
     downloadLabel: "Download",
     footerRights: "All work © Kai Tröppl. All rights reserved.",
@@ -176,6 +177,7 @@ const TRANSLATIONS = {
     aboutLabelFocusVal: "エディトリアル・ポートレート・ファッション",
     contactHeading: "連絡先",
     contactBody: "お仕事のご依頼、コラボレーション、またお気軽なご挨拶まで。",
+    agencyLabel: "所属事務所",
     compcardLabel: "コンプカードをダウンロード",
     downloadLabel: "ダウンロード",
     footerRights: "All work © Kai Tröppl. All rights reserved.",
@@ -234,7 +236,7 @@ function fitHero() {
   intro.classList.add("stats-inline");
   const box = (el) => el.getBoundingClientRect();
   const centre = (el) => (box(el).left + box(el).right) / 2;
-  const title = intro.querySelector(".hero-name");
+  const title = intro.querySelector(".hero-title");
   const text = intro.querySelector(".hero-intro-text");
   const fits =
     intro.scrollWidth <= intro.clientWidth + 1 &&
